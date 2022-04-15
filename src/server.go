@@ -1,9 +1,13 @@
-package main
+package server
+
 import (
 	"fmt"
 "net/http"
 "encoding/json"
-"os")
+"os"
+"strconv"
+"io/ioutil"
+)
 
 type ServerConfig struct {
 	Greetings []Greeting `json:"greetings"`
@@ -51,5 +55,5 @@ func main() {
 	// 	fmt.Fprintf(w, greeting)
 	// }
 
-	fmt.println("server_config.json: %s" serverConfig)
+	fmt.println("server_config.json: %s", serverConfig)
 }
