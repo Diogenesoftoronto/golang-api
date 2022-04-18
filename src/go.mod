@@ -1,3 +1,3 @@
-module github.com/m/v2
+module github/Diogenesoftoronto/golang-api
 
 go 1.18
