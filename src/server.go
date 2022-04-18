@@ -2,38 +2,40 @@ package main
 
 import (
 	"fmt"
-// "net/http"
-"encoding/json"
-"os"
-// "strconv"
-"io/ioutil"
+	// "net/http"
+	"encoding/json"
+	"os"
+
+	// "strconv"
+	"io/ioutil"
 )
 
 type ServerConfig struct {
-	Greetings map[language]message `json:"greetings"`
-	Users []User `json:"users"` 
+	Greetings greetings `json:"greetings"`
+	Users     []User    `json:"users"`
+}
+
+type greetings struct {
+	Languages []Language `json:"languages"`
+}
+
+type Language struct {
+	Lang string `json:"language"`
+	Message string `json:"message"`
 }
 
 type User struct {
-	Name string `json:"name"`
-	Type string `json:"type"`
-	Age int `json:"age"`
+	Name   string `json:"name"`
+	Type   string `json:"type"`
+	Age    int    `json:"age"`
 	Social string `json:"social"`
 }
 
 type Social struct {
 	Facebook string `json:"facebook"`
-	Twitter string `json:"twitter"`
+	Twitter  string `json:"twitter"`
 }
 
-type greetings struct {
-	Greetings []greeting `json:"greetings"`
-}
-
-type greeting struct {
-	Language string `json:"language"`
-	Message string `json:"message"`
-}
 func main() {
 	// open and destructure the opened file into the jsonFIle and error value
 	jsonFile, err := os.Open("server_config.json")
@@ -41,7 +43,7 @@ func main() {
 	if err != nil {
 		fmt.Printf("Error opening server_config.json")
 	}
-	// other wise 
+	// other wise
 	fmt.Println("server_config.json successfully opened")
 
 	defer jsonFile.Close()
@@ -55,5 +57,5 @@ func main() {
 	// 	fmt.Fprintf(w, greeting)
 	// }
 
-	fmt.Printf("hell is here: %v", serverConfig.Greetings.)
+	fmt.Printf("hell is here: %v", serverConfig.Greetings.Languages[len(serverConfig.Greetings.Languages)-1].Lang)
 }
