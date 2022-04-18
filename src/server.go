@@ -2,15 +2,15 @@ package main
 
 import (
 	"fmt"
-"net/http"
+// "net/http"
 "encoding/json"
 "os"
-"strconv"
+// "strconv"
 "io/ioutil"
 )
 
 type ServerConfig struct {
-	Greetings []Greeting `json:"greetings"`
+	Greetings map[language]message `json:"greetings"`
 	Users []User `json:"users"` 
 }
 
@@ -42,7 +42,7 @@ func main() {
 		fmt.Printf("Error opening server_config.json")
 	}
 	// other wise 
-	fmt.println("server_config.json successfully opened")
+	fmt.Println("server_config.json successfully opened")
 
 	defer jsonFile.Close()
 
@@ -55,5 +55,5 @@ func main() {
 	// 	fmt.Fprintf(w, greeting)
 	// }
 
-	fmt.println("server_config.json: %s", serverConfig)
+	fmt.Printf("hell is here: %v", serverConfig.Greetings.)
 }
