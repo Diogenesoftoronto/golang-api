@@ -1,13 +1,15 @@
 {
   "greetings": {
-    "en": {
-      "message":[
-        "Hello, go!"
-      ] 
-    },
-    "fr": {
-      "message": ["Salute, go!"]
-    }
+    "languages": [
+        {
+      "language":"en",
+      "message":"Hello, go!"
+      },
+       {
+      "language":"fr",
+      "message": "Salute, go!"
+      }
+    ]
   },
   "users": [
     {
